@@ -1,0 +1,11 @@
+spring:
+ cloud:
+  gateway:
+   routes:
+    - id: book-service 
+      uri: http://localhost:8080
+      predicates: 
+       - Path=/api/book/**
+      filters:
+       - AddRequestHeader=X-Request-Custom, red
+       - AddResponseHeader=X-Response-Custom, red
